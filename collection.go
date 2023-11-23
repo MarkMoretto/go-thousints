@@ -1,7 +1,7 @@
 package gothousints
 
 const (
-    DefaultSliceCapacity = 1e6
+    DefaultSliceCapacity int = 1e6
 )
 
 func NewRuneSlice() []rune {
