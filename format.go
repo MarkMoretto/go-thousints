@@ -4,7 +4,7 @@ const (
     DefaultSeparator = ','
 )
 
-func FormatByTousands(v int, seperator ...string) string {
+func FormatByThousands(v int, seperator ...rune) string {
     var sep rune
 
     // String is reversed.
@@ -14,7 +14,7 @@ func FormatByTousands(v int, seperator ...string) string {
     // Default separator is comma.
     sep = DefaultSeparator
     if len(seperator) == 1 {
-        sep = []rune(seperator[0])[0]
+        sep = seperator[0]
     }
 
     for idx, ch := range numstr {
