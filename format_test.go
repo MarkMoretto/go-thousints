@@ -15,7 +15,7 @@ func TestFormatByThousandsDefaultSep(t *testing.T) {
         {1000000, "1,000,000"},
     }
     for _, tc := range testCases {
-        actual := FormatByThousands(tc.given)
+        actual := AddSeparatorsTo(tc.given)
         if actual != tc.expect {
             t.Errorf("Wanted: %s, Got: %s", tc.expect, actual)
         }
@@ -34,7 +34,7 @@ func TestFormatByThousandsAltSep(t *testing.T) {
         {1000000, '_', "1_000_000"},
     }
     for _, tc := range testCases {
-        actual := FormatByThousands(tc.given, tc.sep)
+        actual := AddSeparatorsTo(tc.given, tc.sep)
         if actual != tc.expect {
             t.Errorf("Wanted: %s, Got: %s", tc.expect, actual)
         }

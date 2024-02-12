@@ -2,10 +2,6 @@ package thousints
 
 import "fmt"
 
-type Integer interface {
-	int | int8 | int16 | int32 | int64
-}
-
 
 // Convert a string to int.
 func Str2Int[N Integer](s string) N {
