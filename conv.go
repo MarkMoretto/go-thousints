@@ -1,31 +1,34 @@
 package thousints
 
+import "fmt"
 
-// Convert an digit (integer in therange 0 - 9) to a rune.
-// Note: There is no check to ensure that a value is a single digit.
-func Int2Rune[N int | int32 | int64](n N) rune {
-    return '0' + rune(n)
+type Integer interface {
+	int | int8 | int16 | int32 | int64
 }
 
+
 // Convert a string to int.
-func Str2Int[N int | int32 | int64](s string) N {
+func Str2Int[N Integer](s string) N {
 	var out N
 	for _, el := range s {
-		out = out * 10 + N(el - '0')
+        out *= 10
+        out += N(el-'0')
 	}
 	return out
 }
 
 // Convert an integer to string.
-func Int2String[N int | int32 | int64](v N) string {
-    // Special case of only zero.
-    if v == 0 {
-        return "0"
-    }
-	rz := NewRuneSlice()
+func Int2String[N Integer](v N) string {
+	var outs string
+
+	// Special case of only zero.
+	if v == 0 {
+		return "0"
+	}
+
 	for v > 0 {
-		rz = append(rz, rune(v % 10))
+		outs = fmt.Sprintf("%d", v%10) + outs
 		v /= 10
 	}
-	return string(rz)
+	return outs
 }
