@@ -1,4 +1,4 @@
-package gothousints
+package thousints
 
 const (
     DefaultSliceCapacity int = 1e6

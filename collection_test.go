@@ -1,4 +1,4 @@
-package gothousints
+package thousints
 
 import (
 	"testing"

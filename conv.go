@@ -1,4 +1,4 @@
-package gothousints
+package thousints
 
 
 // Convert an digit (integer in therange 0 - 9) to a rune.
